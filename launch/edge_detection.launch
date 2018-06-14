@@ -1,0 +1,5 @@
+<launch>
+  <node name="edges" pkg="edge_dt" type="edge_dt.py">
+    <remap from="image" to="/camera/rgb/image_rect_color/compressed"/>
+  </node>
+</launch>
