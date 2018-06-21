@@ -1,6 +1,8 @@
 <launch>
-  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py">
-    <remap from="image" to="/image_filtered/compressedDepth"/>
-    <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjckps/weights_mpe-50.hdf5" />
+  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" output="screen">
+    <!-- <remap from="image/compressedDepth" to="/image_filtered/compressedDepth"/> -->
+    <remap from="image" to="/image_filtered"/>
+    <!-- <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjckps/weights_mpe-50.hdf5" /> -->
+    <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjdkps/weights_mpe-50.hdf5" />
   </node>
 </launch>

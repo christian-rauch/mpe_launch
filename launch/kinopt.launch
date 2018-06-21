@@ -1,0 +1,5 @@
+<launch>
+  <node name="kinopt" pkg="kinopt" type="kinopt.py" output="screen">
+    <param name="keypoint_path" type="string" value="/home/christian/Downloads/rf_data_kuka_1848_test_ftips/keypoints/max_coords.csv" />
+  </node>
+</launch>
