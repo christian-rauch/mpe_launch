@@ -1,7 +1,4 @@
 <launch>
-  <!-- edge detection and distance transform -->
-  <include file="$(find mpe_launch)/launch/edge_detection.launch"/>
-
   <!-- filter depth data-->
   <include file="$(find mpe_launch)/launch/filter.launch"/>
 
