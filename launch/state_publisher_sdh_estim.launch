@@ -9,7 +9,8 @@
     <param name="tf_prefix" value="estimated" type="str"/>
     <remap from="joint_states" to="/kinopt/solution"/>
   </node>
-  <!-- true/camera_rgb_optical_frame and estimated/camera_rgb_optical_frame are the same frames as camera_rgb_optical_frame -->
+  <!-- set 'camera_rgb_optical_frame' as the common frame -->
   <node pkg="tf" type="static_transform_publisher" name="camera_tf_est" args="0 0 0 0 0 0 1 camera_rgb_optical_frame estimated/camera_rgb_optical_frame 10" />
   <node pkg="tf" type="static_transform_publisher" name="camera_tf_true" args="0 0 0 0 0 0 1 camera_rgb_optical_frame true/camera_rgb_optical_frame 10" />
+  <node pkg="tf" type="static_transform_publisher" name="exotica_world_tf" args="0 0 0 0 0 0 1 camera_rgb_optical_frame exotica/world 10" />
 </launch>
