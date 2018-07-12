@@ -1,5 +1,6 @@
 <launch>
   <param name="robot_description" textfile="$(find lwr_defs)/robots/lwr_sdh.urdf" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="fk" />>
   <!-- true state -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="fk_true">
     <param name="tf_prefix" value="true" type="str"/>
@@ -13,4 +14,6 @@
   <node pkg="tf" type="static_transform_publisher" name="camera_tf_est" args="0 0 0 0 0 0 1 camera_rgb_optical_frame estimated/camera_rgb_optical_frame 10" />
   <node pkg="tf" type="static_transform_publisher" name="camera_tf_true" args="0 0 0 0 0 0 1 camera_rgb_optical_frame true/camera_rgb_optical_frame 10" />
   <node pkg="tf" type="static_transform_publisher" name="exotica_world_tf" args="0 0 0 0 0 0 1 camera_rgb_optical_frame exotica/world 10" />
+  <!-- 'world_frame' from log file is the true world_frame -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="world_tf_true" args="0 0 0 0 0 0 1 world_frame true/world_frame 10" /> -->
 </launch>
