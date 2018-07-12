@@ -1,0 +1,25 @@
+<launch>
+  <node pkg="depth_box_filter" type="depth_box_filter_node" name="depth_box_filter" clear_params="true" output="screen" >
+    <!-- topics -->
+    <remap from="camera_info" to="/camera/depth/camera_info"/>
+    <remap from="depth/image" to="/camera/depth/image_rect_raw"/>
+    <!-- <param name="depth/image_transport" type="str" value="compressedDepth" /> -->
+    <param name="depth/image_transport" type="str" value="raw" />
+    <param name="use_colour" type="bool" value="true" />
+    <remap from="rgb/image" to="/camera/rgb/image_rect_color"/>
+    <param name="rgb/image_transport" type="str" value="compressed" />
+
+    <param name="base_frame" type="str" value="true/world_frame" />
+    <param name="camera_frame" type="str" value="true/camera_rgb_optical_frame" />
+
+    <!-- planes in base frame -->
+    <!-- parameter format: (nx,ny,nz,px,py,pz) -->
+    <rosparam param="planes">
+    [
+        [0.0, 1.0, 0.0, 0.0, 1.0, 0.0],     <!-- wall -->
+        [0.0, 0.0, -1.0, 0.0, 0.0, 0.05],   <!-- table -->
+        [-1.0, 0.0, 0.0, -0.8, 0.0, 0.0]    <!-- left side -->
+    ]
+    </rosparam>
+  </node>
+</launch>
