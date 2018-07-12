@@ -1,5 +1,5 @@
 <launch>
   <node name="render" pkg="robot_state_renderer" output="screen" type="robot_state_renderer_node">
-    <param name="urdf_path" type="string" value="/home/christian/Development/kuka_urdf/urdf/lwr_sdh_ftips.urdf" />
+    <param name="urdf_path" type="string" value="$(find lwr_defs)/robots/lwr_sdh.urdf" />
   </node>
 </launch>
