@@ -1,13 +1,7 @@
 <launch>
-  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" output="screen">
+  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" clear_params="true" output="screen">
     <!-- <remap from="image/compressedDepth" to="/image_filtered/compressedDepth"/> -->
     <remap from="image" to="/image_filtered"/>
-    <!-- <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjckps/weights_mpe-50.hdf5" /> -->
-    <!-- <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjdkps/weights_mpe-50.hdf5" /> -->
-
-    <!-- <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjdkps_new/weights_mpe-18.hdf5" /> -->
-    <!-- <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjdkps_new/weights_mpe-50.hdf5" /> -->
-    <!-- <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjdkps_new2/weights_mpe-47.hdf5" /> -->
-    <param name="model_path" type="string" value="/media/christian/DATA/results_mpe/mpe_segmjdkps_new_mask/weights_mpe-50.hdf5" />
+    <param name="model_path" type="string" value="$(env MODEL)" />
   </node>
 </launch>
