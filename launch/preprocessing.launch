@@ -1,7 +1,7 @@
 <launch>
   <!-- filter depth data-->
   <include file="$(find mpe_launch)/launch/filter_raw.launch"/>
-  <!-- <include file="$(find mpe_launch)/launch/filter_compressed_true.launch"/> -->
+  <!-- <include file="$(find mpe_launch)/launch/filter_compressed.launch"/> -->
 
   <!-- prediction-->
   <include file="$(find mpe_launch)/launch/prediction.launch"/>
