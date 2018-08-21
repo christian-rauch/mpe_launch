@@ -4,7 +4,6 @@
     <remap from="camera_info" to="/camera/depth/camera_info"/>
     <remap from="depth/image" to="/camera/depth/image_rect_raw"/>
     <param name="depth/image_transport" type="str" value="compressedDepth" />
-    <!-- <param name="depth/image_transport" type="str" value="raw" /> -->
     <param name="use_colour" type="bool" value="true" />
     <remap from="rgb/image" to="/camera/rgb/image_rect_color"/>
     <param name="rgb/image_transport" type="str" value="compressed" />
