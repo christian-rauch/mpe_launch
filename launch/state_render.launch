@@ -1,6 +1,6 @@
 <launch>
   <node name="render" pkg="robot_state_renderer" type="robot_state_renderer_node" clear_params="true" output="screen">
-    <param name="urdf_path" type="string" value="$(find lwr_defs)/robots/lwr_sdh.urdf" />
+    <param name="urdf_path" type="string" value="$(find kuka_lwr4_description)/robots/lwr_sdh.urdf" />
     <!-- <param name="visualise" type="bool" value="false" /> -->
   </node>
 </launch>
