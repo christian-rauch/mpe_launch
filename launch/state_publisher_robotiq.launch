@@ -1,0 +1,10 @@
+<launch>
+  <param name="robot_description" textfile="$(find kuka_lwr4_description)/robots/lwr_robotiq_3finger.urdf" />
+  <!-- true state -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk" clear_params="true"/>
+  <!-- estimated state -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk_estimated" clear_params="true">
+    <param name="tf_prefix" type="str" value="estimated"/>
+    <remap from="joint_states" to="/kinopt/est/state"/>
+  </node>
+</launch>
