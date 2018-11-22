@@ -1,5 +1,5 @@
 <launch>
-  <param name="robot_description" textfile="$(find kuka_lwr4_description)/robots/lwr_sdh.urdf" />
+  <param name="robot_description" textfile="$(find kuka_lwr4_description)/urdf/lwr_sdh.urdf" />
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk" clear_params="true"/>
   <!-- estimated state -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk_estimated" clear_params="true">

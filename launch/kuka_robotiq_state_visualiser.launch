@@ -2,7 +2,7 @@
   <param name="use_sim_time" value="false" />
 
   <!-- Load the URDF/Xacro model of our robot -->
-  <param name="robot_description" textfile="$(find kuka_lwr4_description)/robots/lwr_robotiq_3finger.urdf" />
+  <param name="robot_description" textfile="$(find kuka_lwr4_description)/urdf/lwr_robotiq_3finger.urdf" />
 
   <!-- Provide simulated control of the robot joint angles -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

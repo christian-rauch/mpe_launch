@@ -8,7 +8,7 @@
     <remap from="rgb/image" to="/camera/rgb/image_rect_color"/>
     <param name="rgb/image_transport" type="str" value="compressed" />
 
-    <param name="base_frame" type="str" value="world_frame" />
+    <param name="base_frame" type="str" value="table" />
 
     <!-- planes in base frame -->
     <!-- parameter format: (nx,ny,nz,px,py,pz) -->
