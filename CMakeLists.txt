@@ -8,7 +8,7 @@ project(mpe_launch)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  exotica
+  exotica_core
   kinopt
   mpe_prediction
   robot_state_renderer
