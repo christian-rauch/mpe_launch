@@ -1,7 +1,10 @@
 <launch>
-  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" clear_params="true" output="screen">
-    <!-- <remap from="image/compressedDepth" to="/image_filtered/compressedDepth"/> -->
-    <remap from="image" to="/image_filtered"/>
-    <param name="model_path" type="string" value="$(env MODEL)" />
+  <arg name="MODEL"/>
+  <arg name="IMG_COLOUR"/>
+  <arg name="IMG_DEPTH"/>
+
+  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" args="$(arg MODEL)" output="screen">
+    <remap from="colour/compressed" to="$(arg IMG_COLOUR)"/>
+    <remap from="depth/compressedDepth" to="$(arg IMG_DEPTH)"/>
   </node>
 </launch>

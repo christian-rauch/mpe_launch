@@ -1,13 +1,15 @@
 <launch>
-  <!-- filter depth data for visualisation-->
+  <!-- filter depth data-->
+  <!-- <include file="$(find mpe_launch)/launch/filter_raw.launch"/> -->
   <include file="$(find mpe_launch)/launch/filter_compressed.launch"/>
 
   <arg name="MODEL"/>
 
-  <!-- prediction on unfiltered images -->
+  <!-- prediction-->
   <include file="$(find mpe_launch)/launch/prediction.launch">
     <arg name="MODEL" value="$(arg MODEL)" />
     <arg name="IMG_COLOUR" value="/camera/rgb/image_rect_color/compressed" />
-    <arg name="IMG_DEPTH" value="/camera/depth/image_rect_raw/compressedDepth" />
+    <!-- box filtered depth image -->
+    <arg name="IMG_DEPTH" value="/image_filtered" />
   </include>
 </launch>
