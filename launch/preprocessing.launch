@@ -1,6 +1,6 @@
 <launch>
   <!-- filter depth data for visualisation-->
-  <include file="$(find mpe_launch)/launch/filter_compressed.launch"/>
+  <include file="$(find mpe_launch)/launch/filter_compressed_vis_xwall.launch"/>
 
   <arg name="MODEL"/>
 
