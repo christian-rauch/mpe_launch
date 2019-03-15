@@ -1,0 +1,11 @@
+<launch>
+  <arg name="true_fk" default="true" />
+
+  <group if="$(arg true_fk)">
+    <!-- true state -->
+    <include file="$(find mpe_launch)/launch/fk_true.launch"/>
+  </group>
+
+  <!-- estimated state -->
+  <include file="$(find mpe_launch)/launch/fk_est.launch"/>
+</launch>

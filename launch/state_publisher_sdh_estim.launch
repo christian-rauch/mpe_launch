@@ -1,14 +1,9 @@
 <launch>
   <param name="robot_description" textfile="$(find kuka_lwr4_description)/urdf/lwr_sdh.urdf" />
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk" clear_params="true"/>
-  <!-- estimated state -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk_estimated" clear_params="true">
-    <param name="tf_prefix" type="str" value="estimated"/>
-    <!-- <param name="ignore_timestamp" type="bool" value="true"/> -->
-    <remap from="joint_states" to="/kinopt/est/state"/>
-  </node>
+  <include file="$(find mpe_launch)/launch/fk.launch" pass_all_args="true"/>
+
   <!-- set 'camera_rgb_optical_frame' as the common frame -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="camera_tf_est" args="0 0 0 0 0 0 1 camera_rgb_optical_frame estimated/camera_rgb_optical_frame 100"  clear_params="true"/> -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="camera_tf_true" args="0 0 0 0 0 0 1 camera_rgb_optical_frame true/camera_rgb_optical_frame 100"  clear_params="true"/> -->
-  <node pkg="tf" type="static_transform_publisher" name="exotica_world_tf" args="0 0 0 0 0 0 1 camera_rgb_optical_frame exotica/world 100"  clear_params="true"/>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="exotica_world_tf" args="0 0 0 0 0 0 1 camera_rgb_optical_frame exotica/world 100"  clear_params="true"/> -->
 </launch>

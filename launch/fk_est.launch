@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_fk_estimated" clear_params="true">
+    <param name="tf_prefix" type="str" value="estimated"/>
+    <param name="use_tf_static" type="bool" value="false"/>
+    <remap from="joint_states" to="/kinopt/est/state"/>
+  </node>
+</launch>
