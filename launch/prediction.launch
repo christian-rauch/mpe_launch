@@ -1,10 +1,10 @@
 <launch>
   <arg name="MODEL"/>
-  <arg name="IMG_COLOUR"/>
-  <arg name="IMG_DEPTH"/>
+  <arg name="IMG_COLOUR" default="/camera/rgb/image_rect_color/compressed"/>
+  <arg name="IMG_DEPTH" default="/camera/depth/image_rect_raw/compressed"/>
 
   <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" args="$(arg MODEL)" output="screen">
     <remap from="colour/compressed" to="$(arg IMG_COLOUR)"/>
-    <remap from="depth/compressedDepth" to="$(arg IMG_DEPTH)"/>
+    <remap from="depth/compressed" to="$(arg IMG_DEPTH)"/>
   </node>
 </launch>

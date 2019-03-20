@@ -8,6 +8,6 @@
   <include file="$(find mpe_launch)/launch/prediction.launch">
     <arg name="MODEL" value="$(arg MODEL)" />
     <arg name="IMG_COLOUR" value="/camera/rgb/image_rect_color/compressed" />
-    <arg name="IMG_DEPTH" value="/camera/depth/image_rect_raw/compressedDepth" />
+    <arg name="IMG_DEPTH" value="/camera/depth/image_rect_raw/compressed" />
   </include>
 </launch>
