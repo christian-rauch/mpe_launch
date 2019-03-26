@@ -1,0 +1,12 @@
+<launch>
+  <arg name="MODEL"/>
+  <arg name="IMG_COLOUR" default="/camera/rgb/image_rect_color"/>
+  <arg name="IMG_DEPTH" default="/camera/depth/image_rect_raw"/>
+
+  <node name="mpe" pkg="mpe_prediction_cpp" type="mpe_prediction_cpp_node" args="$(arg MODEL)" output="screen">
+    <remap from="colour" to="$(arg IMG_COLOUR)"/>
+    <param name="colour/image_transport" type="str" value="compressed" />
+    <remap from="depth" to="$(arg IMG_DEPTH)"/>
+    <param name="depth/image_transport" type="str" value="compressed" />
+  </node>
+</launch>
