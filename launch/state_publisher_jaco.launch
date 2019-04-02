@@ -1,0 +1,4 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find kinova_description)/urdf/j2n6s300_standalone.xacro'" />
+  <include file="$(find mpe_launch)/launch/fk.launch" pass_all_args="true"/>
+</launch>
