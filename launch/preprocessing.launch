@@ -3,11 +3,9 @@
   <include file="$(find mpe_launch)/launch/filter_compressed_vis_xwall.launch"/>
 
   <arg name="MODEL"/>
+  <arg name="IMG_COLOUR" default="/camera/rgb/image_rect_color/compressed"/>
+  <arg name="IMG_DEPTH" default="/camera/depth/image_rect_raw/compressed"/>
 
   <!-- prediction on unfiltered images -->
-  <include file="$(find mpe_launch)/launch/prediction.launch">
-    <arg name="MODEL" value="$(arg MODEL)" />
-    <arg name="IMG_COLOUR" value="/camera/rgb/image_rect_color/compressed" />
-    <arg name="IMG_DEPTH" value="/camera/depth/image_rect_raw/compressed" />
-  </include>
+  <include file="$(find mpe_launch)/launch/prediction.launch" pass_all_args="true" />
 </launch>
