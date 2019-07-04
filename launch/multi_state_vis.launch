@@ -1,0 +1,7 @@
+<launch>
+  <node name="multi_state_visualiser" pkg="multi_state_visualiser" type="multi_state_visualiser_node" output="screen">
+    <param name="colour_map" type="str" value="inferno" />
+    <param name="alpha" type="double" value="0.7" />
+    <param name="max_score" type="double" value="0.1" />
+  </node>
+</launch>
