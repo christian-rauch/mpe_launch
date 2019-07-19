@@ -3,7 +3,11 @@
   <arg name="IMG_COLOUR" default="/camera/rgb/image_rect_color/compressed"/>
   <arg name="IMG_DEPTH" default="/camera/depth/image_rect_raw/compressed"/>
 
-  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" args="$(arg MODEL)" output="screen">
+  <arg name="timing" default="false" />
+  <arg if="$(arg timing)" name="timing_arg" value="--timing" />
+  <arg unless="$(arg timing)" name="timing_arg" value="" />
+
+  <node name="mpe" pkg="mpe_prediction" type="mpe_predict.py" args="$(arg MODEL) $(arg timing_arg)" output="screen">
     <remap from="colour/compressed" to="$(arg IMG_COLOUR)"/>
     <remap from="depth/compressed" to="$(arg IMG_DEPTH)"/>
   </node>
