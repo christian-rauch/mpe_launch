@@ -1,7 +1,19 @@
 <launch>
-  <node name="multi_state_visualiser" pkg="multi_state_visualiser" type="multi_state_visualiser_node" output="screen">
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb -ex run --args" />
+
+  <!-- colour maps: inferno, magma, plasma, viridis, parula -->
+  <node name="multi_state_visualiser" pkg="multi_state_visualiser" type="multi_state_visualiser_node" clear_params="true" output="screen" launch-prefix="$(arg launch_prefix)">
     <param name="colour_map" type="str" value="inferno" />
-    <param name="alpha" type="double" value="0.7" />
-    <param name="max_score" type="double" value="0.1" />
+    <param name="alpha" type="double" value="0.5" />
+    <param name="max_score" type="double" value="1" />
+  </node>
+
+  <node name="multi_solution_visualiser" pkg="multi_state_visualiser" type="multi_state_visualiser_node" clear_params="true" output="screen" launch-prefix="$(arg launch_prefix)">
+    <remap from="/kinopt/solver/states" to="/kinopt/solver/solutions" />
+    <param name="colour_map" type="str" value="parula" />
+    <param name="alpha" type="double" value="0.5" />
+    <param name="max_score" type="double" value="1" />
   </node>
 </launch>
