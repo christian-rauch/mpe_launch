@@ -1,0 +1,10 @@
+<launch>
+    <rosparam param="/use_sim_time">true</rosparam>
+
+    <!-- prediction -->
+    <include file="$(find mpe_launch)/launch/prediction.launch" pass_all_args="true" />
+
+    <!-- FK -->
+    <include file="$(find mpe_launch)/launch/state_publisher_jaco.launch" />
+
+</launch>

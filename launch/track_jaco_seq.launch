@@ -1,0 +1,17 @@
+<launch>
+    <arg name="sequence"/>
+    <arg name="seq_dir"/>
+    <arg name="log_dir"/>
+
+    <arg name="particles" default="1"/>
+
+    <include file="$(find mpe_launch)/launch/record.launch">
+        <arg name="file" value="$(arg sequence)_p$(arg particles)"/>
+        <arg name="dir" value="$(arg log_dir)"/>
+    </include>
+
+    <!-- replay log file -->
+    <node name="export_player" pkg="export_player" type="export_player.py" args="-bf root -s $(arg seq_dir)/$(arg sequence)" clear_params="true" output="screen"/>
+
+    <node name="tracker" pkg="kinopt" type="kinopt.py" args="cfg/jaco_fixed.yaml cfg/track_hmp2l.yaml --seed 2020 -o '{solver: {particles: $(arg particles)}}'" clear_params="true" required="true" output="screen"/>
+</launch>

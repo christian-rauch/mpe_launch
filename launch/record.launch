@@ -1,0 +1,8 @@
+<launch>
+    <arg name="file" doc="bag filename"/>
+    <arg name="dir" doc="absolute path to log directory"/>
+
+    <arg name="topics" default='/clock /camera/rgb/image_rect_color/compressed /camera/rgb/camera_info /camera/depth/image_rect_raw/compressed /camera/depth/camera_info /export_player/id /joint_states /tf /tf_static /mpe/contours /mpe/segmentation/max_id /mpe/segmentation/max_score /mpe/keypoints/max_id /mpe/keypoints/max_score /kinopt/da /kinopt/obs/edges /kinopt/est/edges /kinopt/est/state /kinopt/sol/state /kinopt/sol/robot_state /kinopt/solver/states /kinopt/solver/solutions -e "/kinopt/p2l/.*"'/>
+
+    <node name="record" pkg="rosbag" type="record" required="true" args='--buffsize=0 --lz4 $(arg topics) -o $(arg dir)/$(arg file)'/>
+</launch>
