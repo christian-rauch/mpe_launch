@@ -13,5 +13,5 @@
     <!-- replay log file -->
     <node name="export_player" pkg="export_player" type="export_player.py" args="-bf root -s $(arg seq_dir)/$(arg sequence)" clear_params="true" output="screen"/>
 
-    <node name="tracker" pkg="kinopt" type="kinopt.py" args="cfg/jaco_fixed.yaml cfg/track_hmp2l.yaml --seed 2020 -o '{solver: {particles: $(arg particles)}}'" clear_params="true" required="true" output="screen"/>
+    <node name="tracker" pkg="kinopt" type="kinopt.py" args="cfg/jaco_fixed.yaml cfg/track_hmp2l.yaml --seed 2020 --delay 2 -o '{solver: {particles: $(arg particles)}}'" clear_params="true" required="true" output="screen"/>
 </launch>
