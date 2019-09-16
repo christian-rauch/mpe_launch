@@ -5,13 +5,14 @@
 
   <!-- colour maps: inferno, magma, plasma, viridis, parula -->
   <node name="multi_state_visualiser" pkg="multi_state_visualiser" type="multi_state_visualiser_node" clear_params="true" output="screen" launch-prefix="$(arg launch_prefix)">
+    <remap from="~states" to="/kinopt/solver/states" />
     <param name="colour_map" type="str" value="inferno" />
     <param name="alpha" type="double" value="0.5" />
     <!-- <param name="scale" type="yaml" value="[0, 1]" /> -->
   </node>
 
   <node name="multi_solution_visualiser" pkg="multi_state_visualiser" type="multi_state_visualiser_node" clear_params="true" output="screen" launch-prefix="$(arg launch_prefix)">
-    <remap from="/kinopt/solver/states" to="/kinopt/solver/solutions" />
+    <remap from="~states" to="/kinopt/solver/solutions" />
     <param name="colour_map" type="str" value="parula" />
     <param name="alpha" type="double" value="0.5" />
     <!-- <param name="scale" type="yaml" value="[0, 1]" /> -->
