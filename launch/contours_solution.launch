@@ -1,0 +1,10 @@
+<launch>
+  <node name="contours_solution" pkg="state_contour_visualiser" type="state_contour_visualiser_node" clear_params="true" output="screen" >
+    <remap from="~state" to="/kinopt/sol/state"/>
+    <remap from="~image" to="/camera/rgb/image_rect_color"/>
+    <param name="image_transport" type="str" value="compressed"/>
+
+    <param name="line_thickness" type="int" value="3"/>
+    <param name="line_colour" type="yaml" value="[255, 0, 0]"/>
+  </node>
+</launch>
