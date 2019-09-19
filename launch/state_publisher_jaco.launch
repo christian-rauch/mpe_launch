@@ -1,4 +1,4 @@
 <launch>
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find j2n6s300_ori)/urdf/j2n6s300.urdf.xacro'" />
+  <include file="$(find mpe_launch)/launch/set_jaco_model.launch" pass_all_args="true"/>
   <include file="$(find mpe_launch)/launch/fk.launch" pass_all_args="true"/>
 </launch>
