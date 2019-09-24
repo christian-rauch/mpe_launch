@@ -3,6 +3,7 @@
     <remap from="~state" to="/kinopt/sol/state"/>
     <remap from="~image" to="/camera/rgb/image_rect_color"/>
     <param name="image_transport" type="str" value="compressed"/>
+    <param name="queue_size" type="int" value="30"/>
 
     <param name="line_thickness" type="int" value="3"/>
     <param name="line_colour" type="yaml" value="[255, 0, 0]"/>
